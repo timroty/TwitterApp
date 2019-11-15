@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accessors\ITwitterApi.cs" />
+    <Compile Include="Engines\ITweetEngine.cs" />
     <Compile Include="Managers\ITweetManager.cs" />
+    <Compile Include="Models\TweetInfo.cs" />
+    <Compile Include="Models\TweetObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

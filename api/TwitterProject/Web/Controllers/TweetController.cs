@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Core;
 using Core.Managers;
+using Core.Models;
 using Service;
 
 namespace Web.Controllers
@@ -19,17 +15,10 @@ namespace Web.Controllers
             _tweetManager = tweetManager;
         }
 
-        //[Route("Tweet/Get")]
-        public IEnumerable<string> Get()
+        [Route("Tweet/getTweets")]
+        public TweetInfo Get(string userName, int numTweets, string userAccessSecret, string consumerSecret)
         {
-            return _tweetManager.SelectTweets("tcroty", 10, "",
-                "");
-        }
-
-        //[Route("Tweet/test")]
-        public IEnumerable<string> Get(string userName, int numTweets, string userAccessSecret, string consumerSecret)
-        {
-            return _tweetManager.SelectTweets("tcroty", 10, userAccessSecret,
+            return _tweetManager.SelectTweets(userName, numTweets, userAccessSecret,
                 consumerSecret);
         }
 

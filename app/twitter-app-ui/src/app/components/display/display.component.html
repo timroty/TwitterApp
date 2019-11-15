@@ -1,0 +1,43 @@
+
+<div class="display">
+  <div>
+  <mat-form-field>
+    <mat-label>Select a User</mat-label>
+    <mat-select [(value)]="selectedUser">
+      <mat-option value="opendorse">Opendorse</mat-option>
+      <mat-option value="Lincoln_Police">Lincoln Police</mat-option>
+      <mat-option value="coach_frost">Scott Frost</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+    <mat-label>Select the Number of Tweets</mat-label>
+    <mat-select [(value)]="selectedNum">
+      <mat-option value="5">5</mat-option>
+      <mat-option value="10">10</mat-option>
+      <mat-option value="20">20</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div>
+  <h4> Access token secret</h4>
+  <input #userSecret (keyup)="0">
+  <h4> Consumer API Secret Key</h4>
+  <input #consumerSecret (keyup)="0">
+
+  <div>
+  <button class="btn btn-outline-success" id="loadButton" (click)="getTweets(selectedUser,selectedNum,userSecret.value,consumerSecret.value)">Load Tweets</button>
+  </div> 
+  <div *ngIf="display">
+    <h4> Average Retweets in Sample: {{avgRetweets}}</h4>
+    <h4> Average Favorites in Sample: {{avgFavorites}}</h4>
+  </div>
+
+  <ul class="list">
+    <li class="item" *ngFor="let tweet of tweets">
+      <h4> {{tweet.text}} </h4>
+      <h5> Retweets: {{tweet.retweets}} <span>Favorites: {{tweet.favorites}}</span> </h5>
+    </li>
+  </ul>
+</div>

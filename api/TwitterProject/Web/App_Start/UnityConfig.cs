@@ -1,5 +1,6 @@
 using System;
 using Core.Accessors;
+using Core.Engines;
 using Core.Managers;
 using DataAccess;
 using Service;
@@ -45,6 +46,7 @@ namespace Web
 
             container.RegisterType<ITwitterApi, TwitterApi>();
             container.RegisterType<ITweetManager, TweetManager>();
+            container.RegisterType<ITweetEngine, TweetEngine>();
             // container.RegisterType<IProductRepository, ProductRepository>();
         }
     }
